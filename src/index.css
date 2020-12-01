@@ -11,6 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body,
+html {
+  padding: 0;
+  margin: 0;
+}
 #root {
   display: flex;
   justify-content: center;
@@ -23,6 +33,7 @@ code {
 #drum-machine {
   display: flex;
   background: rgb(175, 74, 74);
+  justify-content: space-evenly;
 }
 
 .drum-panel {
@@ -32,18 +43,46 @@ code {
   gap: 0.5em;
   padding: 1em;
   width: 300px;
+  margin: 0 auto;
 }
 
 .drum-pad {
   background: burlywood;
+  padding: 1em;
+  text-align: center;
+  box-shadow: 4px 4px brown;
+}
+
+.drum-pad:active,
+.active {
+  background: rgb(230, 3, 3);
   padding: 0.5em;
   text-align: center;
   box-shadow: 4px 4px brown;
 }
 
-.drum-pad-click {
-  background: rgb(230, 3, 3);
-  padding: 0.5em;
-  text-align: center;
-  box-shadow: 4px 4px brown;
+.display {
+  padding: 0 1em;
+
+  background: burlywood;
+  height: 90%;
+  margin: 5% 2em;
+  min-width: 100px;
+}
+#display {
+  padding: 1em;
+}
+
+@media only screen and (max-width: 769px) {
+  #drum-machine {
+    display: flex;
+    background: rgb(175, 74, 74);
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .display {
+    margin: 2em auto;
+    width: 100%;
+  }
 }

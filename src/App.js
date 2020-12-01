@@ -1,7 +1,9 @@
-
+import React, {useState } from 'react'
+import Display from './Display';
 import Drum from './Drum';
 
 function App() {
+
   const clips = [
     {
       keyCode: 81,
@@ -59,18 +61,35 @@ function App() {
     },
   ];
 
+  const [Id, setId] = useState('')
+
+const callback = (value)=>{
+  setId(value)
+}
+
+
+
+
 
   return (
     <div className="App" id='drum-machine'>
     <div className='drum-panel'>
       {
         clips.map(clip=>{
-          return <Drum key={clip.id} id={clip.id} text={clip.keyTrigger} sound={clip.url} keyCode={clip.keyCode}/>
+          return <Drum 
+          key={clip.id}
+           id={clip.id} 
+           text={clip.keyTrigger} 
+           sound={clip.url} 
+           keyCodes={clip.keyCode}
+           callback={callback}
+           />
+           
         })
       }
     </div>
     <div id='display'>
-      <h3>display</h3>
+      <Display id={Id} />
     </div>
     </div>
   );
